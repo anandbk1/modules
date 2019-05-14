@@ -1,5 +1,3 @@
-class wordpress {
-
 exec {'apt update': 
    path => '/usr/bin'
 }
@@ -54,20 +52,19 @@ file { '/var/www/html/wordpress':
   owner => 'www-data',
 }
 
-exec {"sed -i 's/database_name_here/wordpress/' /var/www/html/wordpress/wp-config.php":
-    path => '/bin',
-}
+#exec {"sed -i 's/database_name_here/wordpress/' /var/www/html/wordpress/wp-config.php":
+#    path => '/bin',
+#}
 
-exec {"sed -i 's/username_here/wordpressuser/' /var/www/html/wordpress/wp-config.php":
-    path => '/bin',
-}
+#exec {"sed -i 's/username_here/wordpressuser/' /var/www/html/wordpress/wp-config.php":
+#    path => '/bin',
+#}
 
-exec {"sed -i 's/password_here/password/' /var/www/html/wordpress/wp-config.php":
-    path => '/bin',
-}
+#exec {"sed -i 's/password_here/password/' /var/www/html/wordpress/wp-config.php":
+#    path => '/bin',
+#}
 
 exec {'service apache2 restart':
 	            path => ['/usr/sbin', '/usr/bin', '/bin', '/sbin'],
 }
 
-}
